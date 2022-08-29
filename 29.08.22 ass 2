@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    char string[100];
+    int index,count,digit='0';
+    scanf("%s",string);
+    
+    while(digit<='9')
+    {
+        count=0;index=0;
+        while(index<strlen(string))
+            string[index++]==digit?count++:0;
+        printf("%d ",count);
+        digit++;
+    }   
+
+
+     
+    return 0;
+}
