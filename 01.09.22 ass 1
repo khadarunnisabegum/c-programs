@@ -1,0 +1,20 @@
+#include<stdio.h>
+void main()
+{
+    int n,ans;
+    printf("Enter a number:");
+    scanf("%d",&n);
+    ans=checkoddeven(n);
+    if(ans==0)
+    printf("even");
+    else
+    printf("odd");
+}
+int checkoddeven(int n)
+{
+    if(n%2==0)
+    return 0;
+    else
+    return 1;
+    
+}
