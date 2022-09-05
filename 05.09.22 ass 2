@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main()
+{
+    int i,a[10],n;
+    printf("enter size of array:\n");
+    scanf("%d",&n);
+    i=0;
+    while(i<=n)
+    {
+        scanf("%d",&a[i]);
+        printf("%d\n",a[i]);
+         i++;
+    }
+    return 0;
+}
