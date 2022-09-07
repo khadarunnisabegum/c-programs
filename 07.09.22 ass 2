@@ -1,0 +1,19 @@
+#include<stdio.h>
+#include<stdlib.h>
+void main()
+{
+    int n,i,sum=0;
+    int *a;
+    printf("enter a num:");
+    scanf("%d",&n);
+    a=(int *)malloc(n*sizeof(int));
+    for(i=0;i<n;i++)
+    {
+    scanf("%d",(a+i));
+    }
+    for(i=0;i<n;i++)
+    {
+        sum=sum+a[i];
+    }
+    printf("%d",sum);
+}
