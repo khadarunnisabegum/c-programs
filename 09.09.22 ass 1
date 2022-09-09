@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node 
+{
+    int num;                    
+    struct node *nextptr;       
+}*stnode;
+
+void createNodeList(int n);     
+void NodeInsertatEnd(int num);	
+void displayList();             
+ 
+int main()
+{
+    int n,num;
+    printf(" Enter number of nodes : ");
+    scanf("%d", &n);
+    createNodeList(n);
+    printf("\n Elements in the list are:\n");		
+    displayList();
+    printf("\nElement to be added:");
+    scanf("%d",&num);
+    NodeInsertatEnd(num);
+    printf("\n Elements in the list are: \n");		
+    displayList();
+    return 0;
+}
+void createNodeList(int n)
+{
+    struct node *fnNode, *tmp;
+    int num, i;
+    stnode = (struct node *)malloc(sizeof(struct node));
+    if(stnode == NULL)
+    {
+        printf(" Memory can not be allocated.");
+    }
+    else
+    {
+        printf("Enter number:");
+        scanf("%d", &num);
+        stnode-> num = num;      
+        stnode-> nextptr = NULL;
+        tmp = stnode;
+        for(i=2; i<=n; i++)
+        {
+            fnNode = (struct node *)malloc(sizeof(struct node));
+            if(fnNode == NULL) 
+            {
+                printf(" Memory can not be allocated.");
+                break;
+            }
+            else
+            {
+                printf("Enter number:");
+                scanf(" %d", &num);
+                fnNode->num = num; 
+                tmp->nextptr = fnNode;
+                tmp = tmp->nextptr;
+            }
+        }
+    }
+} 
+
+void NodeInsertatEnd(int num)
+{
+    struct node *fnNode, *tmp;
+    fnNode = (struct node*)malloc(sizeof(struct node));
+    if(fnNode == NULL)
+    {
+        printf(" Memory can not be allocated.");
+    }
+    else
+    {
+        fnNode->num = num;     
+        fnNode->nextptr = NULL; 
+        tmp = stnode;
+        while(tmp->nextptr != NULL)
+            tmp = tmp->nextptr;
+        tmp->nextptr = fnNode;  
+    }
+}
+
+void displayList()
+{
+    struct node *tmp;
+    if(stnode == NULL)
+    {
+        printf(" No data found in the empty list.");
+    }
+    else
+    {
+        tmp = stnode;
+        while(tmp != NULL)
+        {
+            printf("%d\n", tmp->num); 
+            tmp = tmp->nextptr;         
+        }
+    }
+} 
